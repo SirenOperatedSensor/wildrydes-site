@@ -17,17 +17,17 @@ WildRydes.map = WildRydes.map || {};
     });
     function requestUnicorn(pickupLocation) {
         $.ajax({
-            method: 'GET',
-            url: _config.api.invokeUrl + '/gate',
+            method: 'POST',
+            url: _config.api.invokeUrl + '/ride',
             headers: {
                 Authorization: authToken
-            }
-            /*data: JSON.stringify({
+            },
+            data: JSON.stringify({
                 PickupLocation: {
                     Latitude: pickupLocation.latitude,
                     Longitude: pickupLocation.longitude
                 }
-            })*/,
+            }),
             contentType: 'application/json',
             success: completeRequest,
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
