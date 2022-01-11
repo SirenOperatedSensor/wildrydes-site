@@ -18,7 +18,7 @@ WildRydes.map = WildRydes.map || {};
     function requestUnicorn(pickupLocation) {
         $.ajax({
             method: 'POST',
-            url: _config.api.invokeUrl + '/gates',
+            url: _config.api.invokeUrl + '/rides',
             headers: {
                 Authorization: authToken
             },
