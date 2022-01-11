@@ -78,6 +78,7 @@ WildRydes.map = WildRydes.map || {};
 
     function handleRequestClick(event) {
         var pickupLocation = WildRydes.map.selectedPoint;
+        //{"PickupLocation":{"Latitude":47.6060187409301,"Longitude":-122.31326156616002}}
         event.preventDefault();
         requestUnicorn(pickupLocation);
     }
