@@ -15,7 +15,7 @@ WildRydes.map = WildRydes.map || {};
         alert(error);
         window.location.href = '/signin.html';
     });
-    function requestUnicorn(pickupLocation) {
+    function requestUnicorn() {
         $.ajax({
             method: 'GET',
             url: _config.api.invokeUrl + '/gates',
@@ -65,7 +65,7 @@ WildRydes.map = WildRydes.map || {};
     function handleRequestClick(event) {
         var pickupLocation = {"Latitude":47.6060187409301,"Longitude":-122.31326156616002};
         event.preventDefault();
-        requestUnicorn(pickupLocation);
+        requestUnicorn();
     }
 
 
