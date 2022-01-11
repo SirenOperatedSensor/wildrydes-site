@@ -36,7 +36,7 @@ WildRydes.map = WildRydes.map || {};
                 alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
             }
         });
-    }
+    } 
 
     function completeRequest(result) {
         var unicorn;
