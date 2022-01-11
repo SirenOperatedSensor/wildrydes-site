@@ -15,7 +15,7 @@ WildRydes.map = WildRydes.map || {};
         alert(error);
         window.location.href = '/signin.html';
     });
-    function requestUnicorn() {
+    function requestUnicorn(pickupLocation) {
         $.ajax({
             method: 'GET',
             url: _config.api.invokeUrl + '/gates',
