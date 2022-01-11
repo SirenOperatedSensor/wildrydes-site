@@ -39,19 +39,10 @@ WildRydes.map = WildRydes.map || {};
     } 
 
     function completeRequest(result) {
-        var unicorn;
-        var pronoun;
+        
         console.log('Response received from API: ', result);
-        document.getElementById("response").innerText = result;
-        unicorn = result.Unicorn;
-        pronoun = unicorn.Gender === 'Male' ? 'his' : 'her';
-        displayUpdate(unicorn.Name + ', your ' + unicorn.Color + ' unicorn, is on ' + pronoun + ' way.');
-        animateArrival(function animateCallback() {
-            displayUpdate(unicorn.Name + ' has arrived. Giddy up!');
-            WildRydes.map.unsetLocation();
-            $('#request').prop('disabled', 'disabled');
-            $('#request').text('Set Pickup');
-        });
+        document.getElementById("response").innerText = JSON.stringify(result);
+        
     }
 
     // Register click handler for #request button
@@ -78,31 +69,9 @@ WildRydes.map = WildRydes.map || {};
     }
 
     function handleRequestClick(event) {
-        var pickupLocation = WildRydes.map.selectedPoint;
         event.preventDefault();
-        requestUnicorn(pickupLocation);
+        requestUnicorn();
     }
 
-    function animateArrival(callback) {
-        var dest = WildRydes.map.selectedPoint;
-        var origin = {};
 
-        if (dest.latitude > WildRydes.map.center.latitude) {
-            origin.latitude = WildRydes.map.extent.minLat;
-        } else {
-            origin.latitude = WildRydes.map.extent.maxLat;
-        }
-
-        if (dest.longitude > WildRydes.map.center.longitude) {
-            origin.longitude = WildRydes.map.extent.minLng;
-        } else {
-            origin.longitude = WildRydes.map.extent.maxLng;
-        }
-
-        WildRydes.map.animate(origin, dest, callback);
-    }
-
-    function displayUpdate(text) {
-        $('#updates').append($('<li>' + text + '</li>'));
-    }
 }(jQuery));
